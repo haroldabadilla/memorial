@@ -1,70 +1,129 @@
-# Getting Started with Create React App
+```markdown
+# Memorial Tribute Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack static site generator designed to create a respectful, performant, and responsive digital memorial.
 
-## Available Scripts
+This project utilizes a **Hybrid Architecture**: A C# .NET Console Application serves as a custom "Headless CMS" to process media assets and generate data, which is then consumed by a React Frontend hosted on GitHub Pages.
 
-In the project directory, you can run:
+## Key Features
 
-### `npm start`
+* **Custom Content Generation:** A C# backend scans local directories, processes filenames, generates Cloudinary optimized URLs, and outputs a structured JSON payload.
+* **Performance First:** React Frontend uses `lazy-loading`, Cloudinary `f_auto/q_auto` optimization, and responsive image sizing to ensure fast load times on mobile.
+* **Cinema-Style UI:** Features an edge-to-edge immersive hero section and a mobile-responsive "Cinema Mode" for viewing memories.
+* **Responsive Design:** Fully adaptive CSS Grid layout with a custom-built hamburger menu for mobile navigation.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+* **Framework:** React 18
+* **Styling:** CSS3 (Variables, Flexbox, Grid, Animations)
+* **Hosting:** GitHub Pages via `gh-pages`
+* **State Management:** React Hooks (`useState`, `useEffect`)
 
-### `npm test`
+### Backend (Data Generator)
+* **Language:** C# (.NET 8.0)
+* **Principles:** Dependency Injection (DI), Interface Segregation, SOLID.
+* **Services:** `System.IO` for file scanning, `System.Text.Json` for serialization.
+* **Cloud Integration:** Cloudinary (for Asset Management).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```mermaid
+graph LR
+    A[Local Photos Folder] -->|Scanned by| B(C# .NET Backend)
+    B -->|Generates URLs| C{Cloudinary}
+    B -->|Outputs| D[memorial_data.json]
+    D -->|Consumed by| E(React Frontend)
+    E -->|Deployed to| F[GitHub Pages]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup & Installation
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Node.js & npm
+* .NET SDK (6.0 or higher)
+* Cloudinary Account
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Backend Configuration (Data Generation)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Navigate to the `MemorialBackend` folder.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Place your photos in the `photos_to_upload` directory.
+2. Update `Program.cs` with your Cloudinary Cloud Name.
+3. Run the generator:
+```bash
+cd MemorialBackend
+dotnet run
 
-## Learn More
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. This generates a `memorial_data.json` file. Copy this file to `memorial-site/public/`.
 
-### Code Splitting
+### 2. Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Navigate to the `memorial-site` folder.
 
-### Analyzing the Bundle Size
+1. Install dependencies:
+```bash
+cd memorial-site
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Start the local development server:
+```bash
+npm start
 
-### Advanced Configuration
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+3. Open `http://localhost:3000` to view the site.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project uses `gh-pages` for deployment.
+
+1. Ensure `memorial_data.json` and `hero-image.jpg` are in the `public` folder.
+2. Run the deploy script:
+```bash
+npm run deploy
+
+```
+
+
+3. The site will be live at `https://[USERNAME].github.io/[REPO-NAME]`.
+
+---
+
+## Project Structure
+
+```bash
+/
+├── MemorialBackend/          # C# Console Application
+│   ├── Services/             # Business Logic & Scanners
+│   ├── Models/               # Data Structures
+│   ├── Interfaces/           # DI Contracts
+│   └── Program.cs            # Entry Point
+│
+└── memorial-site/            # React Application
+    ├── public/               # Static Assets (JSON, Images)
+    ├── src/
+    │   ├── App.js            # Main Component Logic
+    │   └── App.css           # Global Styles & Theme
+    └── package.json          # Dependency Config
+
+```
+
+## License
+
+This project is open source and available under the [MIT License](https://www.google.com/search?q=LICENSE).
+
+```
