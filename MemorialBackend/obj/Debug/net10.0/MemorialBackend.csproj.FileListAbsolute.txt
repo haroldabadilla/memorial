@@ -1,0 +1,15 @@
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/bin/Debug/net10.0/MemorialBackend
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/bin/Debug/net10.0/MemorialBackend.deps.json
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/bin/Debug/net10.0/MemorialBackend.runtimeconfig.json
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/bin/Debug/net10.0/MemorialBackend.dll
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/bin/Debug/net10.0/MemorialBackend.pdb
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/obj/Debug/net10.0/MemorialBackend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/obj/Debug/net10.0/MemorialBackend.AssemblyInfoInputs.cache
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/obj/Debug/net10.0/MemorialBackend.AssemblyInfo.cs
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/obj/Debug/net10.0/MemorialBackend.csproj.CoreCompileInputs.cache
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/obj/Debug/net10.0/MemorialBackend.sourcelink.json
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/obj/Debug/net10.0/MemorialBackend.dll
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/obj/Debug/net10.0/refint/MemorialBackend.dll
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/obj/Debug/net10.0/MemorialBackend.pdb
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/obj/Debug/net10.0/MemorialBackend.genruntimeconfig.cache
+/Users/harold/Documents/GitHub/memorial/MemorialBackend/obj/Debug/net10.0/ref/MemorialBackend.dll
